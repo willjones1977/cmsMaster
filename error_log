@@ -1,0 +1,151 @@
+[25-Feb-2016 01:25:02 UTC] test test
+[25-Feb-2016 01:25:49 UTC] test test
+[25-Feb-2016 01:25:53 UTC] test test
+[25-Feb-2016 01:25:57 UTC] test test
+[25-Feb-2016 01:26:00 UTC] test test
+[25-Feb-2016 01:27:27 UTC] test test
+[25-Feb-2016 01:27:41 UTC] test test
+[25-Feb-2016 01:27:42 UTC] test test
+[25-Feb-2016 01:27:47 UTC] test test
+[25-Feb-2016 01:27:50 UTC] test test
+[25-Feb-2016 01:28:02 UTC] test test
+[25-Feb-2016 01:28:04 UTC] test test
+[25-Feb-2016 01:28:34 UTC] test test
+[25-Feb-2016 01:28:36 UTC] test test
+[25-Feb-2016 01:29:45 UTC] test test
+[25-Feb-2016 01:31:13 UTC] test test
+[25-Feb-2016 01:31:15 UTC] test test
+[25-Feb-2016 01:31:52 UTC] test test
+[25-Feb-2016 01:33:50 UTC] test test
+[25-Feb-2016 01:34:17 UTC] test test
+[25-Feb-2016 01:34:31 UTC] test test
+[25-Feb-2016 01:34:47 UTC] test test
+[25-Feb-2016 01:34:55 UTC] test test
+[25-Feb-2016 01:42:06 UTC] test test
+[25-Feb-2016 01:42:08 UTC] test test
+[25-Feb-2016 01:48:16 UTC] test test
+[25-Feb-2016 01:48:39 UTC] AdminController@index called.. 
+[25-Feb-2016 01:48:42 UTC] AdminController@index called.. 
+[25-Feb-2016 01:49:21 UTC] test test
+[25-Feb-2016 01:49:39 UTC] test test
+[25-Feb-2016 01:49:46 UTC] AdminController@index called.. 
+[25-Feb-2016 01:50:40 UTC] PHP Fatal error:  Class 'App\Http\Middleware\Auth' not found in /var/www/html/endlessupgrades/app/Http/Middleware/Admin.php on line 18
+[25-Feb-2016 01:50:40 UTC] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/html/endlessupgrades/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied' in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:87
+Stack trace:
+#0 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(289): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(565): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /var/www/html/endlessupgrades/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /var/www/html/endlessupgrades/vendor/larave in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 87
+[25-Feb-2016 01:50:46 UTC] PHP Fatal error:  Class 'App\Http\Middleware\Redirect' not found in /var/www/html/endlessupgrades/app/Http/Middleware/Admin.php on line 19
+[25-Feb-2016 01:50:46 UTC] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/html/endlessupgrades/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied' in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:87
+Stack trace:
+#0 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(289): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(565): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /var/www/html/endlessupgrades/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /var/www/html/endlessupgrades/vendor/larave in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 87
+[25-Feb-2016 01:53:22 UTC] PHP Fatal error:  Class 'App\Http\Middleware\Redirect' not found in /var/www/html/endlessupgrades/app/Http/Middleware/Admin.php on line 19
+[25-Feb-2016 01:53:22 UTC] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/html/endlessupgrades/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied' in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:87
+Stack trace:
+#0 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(289): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(565): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /var/www/html/endlessupgrades/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /var/www/html/endlessupgrades/vendor/larave in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 87
+[25-Feb-2016 01:53:25 UTC] test test
+[25-Feb-2016 01:53:51 UTC] test test
+[25-Feb-2016 01:53:58 UTC] AdminController@index called.. 
+[25-Feb-2016 01:54:04 UTC] AdminController@index called.. 
+[25-Feb-2016 01:54:06 UTC] AdminController@index called.. 
+[25-Feb-2016 01:54:36 UTC] test test
+[25-Feb-2016 01:54:46 UTC] PHP Fatal error:  Class 'App\Http\Middleware\Redirect' not found in /var/www/html/endlessupgrades/app/Http/Middleware/Admin.php on line 19
+[25-Feb-2016 01:54:46 UTC] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/html/endlessupgrades/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied' in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:87
+Stack trace:
+#0 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(289): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(565): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /var/www/html/endlessupgrades/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /var/www/html/endlessupgrades/vendor/larave in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 87
+[25-Feb-2016 01:54:46 UTC] PHP Fatal error:  Class 'App\Http\Middleware\Redirect' not found in /var/www/html/endlessupgrades/app/Http/Middleware/Admin.php on line 19
+[25-Feb-2016 01:54:46 UTC] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/html/endlessupgrades/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied' in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php:87
+Stack trace:
+#0 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php(37): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(289): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Logger.php(565): Monolog\Logger->addRecord(400, Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#3 /var/www/html/endlessupgrades/vendor/laravel/framework/src/Illuminate/Log/Writer.php(202): Monolog\Logger->error(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#4 /var/www/html/endlessupgrades/vendor/larave in /var/www/html/endlessupgrades/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 87
+[25-Feb-2016 01:55:07 UTC] test test
+[25-Feb-2016 01:55:11 UTC] test test
+[25-Feb-2016 01:55:16 UTC] test test
+[25-Feb-2016 01:55:29 UTC] test test
+[25-Feb-2016 01:55:33 UTC] AdminController@index called.. 
+[25-Feb-2016 01:55:35 UTC] AdminController@index called.. 
+[25-Feb-2016 01:55:37 UTC] AdminController@index called.. 
+[25-Feb-2016 01:55:38 UTC] test test
+[25-Feb-2016 01:57:08 UTC] test test
+[25-Feb-2016 01:57:10 UTC] AdminController@index called.. 
+[25-Feb-2016 01:57:13 UTC] AdminController@index called.. 
+[25-Feb-2016 01:59:32 UTC] test test
+[25-Feb-2016 01:59:33 UTC] test test
+[25-Feb-2016 01:59:35 UTC] test test
+[25-Feb-2016 01:59:58 UTC] test test
+[25-Feb-2016 02:00:06 UTC] test test
+[25-Feb-2016 02:00:17 UTC] test test
+[25-Feb-2016 02:18:57 UTC] test test
+[25-Feb-2016 02:19:18 UTC] test test
+[25-Feb-2016 02:19:20 UTC] AdminController@index called.. 
+[25-Feb-2016 02:19:54 UTC] AdminController@index called.. 
+[25-Feb-2016 02:20:04 UTC] AdminController@index called.. 
+[25-Feb-2016 02:20:28 UTC] test test
+[25-Feb-2016 02:20:30 UTC] AdminController@index called.. 
+[25-Feb-2016 02:20:36 UTC] test test
+[25-Feb-2016 02:20:44 UTC] test test
+[25-Feb-2016 02:20:46 UTC] AdminController@index called.. 
+[25-Feb-2016 02:20:48 UTC] AdminController@index called.. 
+[25-Feb-2016 02:23:05 UTC] AdminController@index called.. 
+[25-Feb-2016 02:23:32 UTC] AdminController@index called.. 
+[25-Feb-2016 02:23:34 UTC] AdminController@index called.. 
+[25-Feb-2016 02:23:37 UTC] AdminController@index called.. 
+[25-Feb-2016 02:23:40 UTC] AdminController@index called.. 
+[25-Feb-2016 02:25:50 UTC] AdminController@index called.. 
+[25-Feb-2016 02:26:08 UTC] AdminController@index called.. 
+[25-Feb-2016 02:27:12 UTC] AdminController@index called.. 
+[25-Feb-2016 02:28:28 UTC] AdminController@index called.. 
+[25-Feb-2016 02:28:33 UTC] AdminController@index called.. 
+[25-Feb-2016 02:29:18 UTC] AdminController@index called.. 
+[25-Feb-2016 02:30:25 UTC] AdminController@index called.. 
+[25-Feb-2016 02:31:15 UTC] AdminController@index called.. 
+[25-Feb-2016 02:31:42 UTC] AdminController@index called.. 
+[25-Feb-2016 02:32:52 UTC] test test
+[25-Feb-2016 02:32:57 UTC] AdminController@index called.. 
+[25-Feb-2016 02:33:39 UTC] AdminController@index called.. 
+[25-Feb-2016 02:34:48 UTC] AdminController@index called.. 
+[25-Feb-2016 02:43:08 UTC] AdminController@index called.. 
+[25-Feb-2016 02:43:47 UTC] AdminController@index called.. 
+[25-Feb-2016 02:43:48 UTC] AdminController@index called.. 
+[25-Feb-2016 02:48:20 UTC] AdminController@index called.. 
+[25-Feb-2016 02:48:28 UTC] AdminController@index called.. 
+[25-Feb-2016 02:48:40 UTC] AdminController@index called.. 
+[25-Feb-2016 02:51:10 UTC] AdminController@index called.. 
+[26-Feb-2016 00:51:45 UTC] test test
+[26-Feb-2016 00:51:47 UTC] AdminController@index called.. 
+[26-Feb-2016 00:54:59 UTC] AdminController@index called.. 
+[26-Feb-2016 00:55:04 UTC] AdminController@index called.. 
+[26-Feb-2016 00:55:31 UTC] AdminController@index called.. 
+[26-Feb-2016 00:55:43 UTC] AdminController@index called.. 
+[26-Feb-2016 00:56:02 UTC] AdminController@index called.. 
+[26-Feb-2016 00:56:52 UTC] AdminController@index called.. 
+[26-Feb-2016 00:57:54 UTC] AdminController@index called.. 
+[26-Feb-2016 00:58:25 UTC] AdminController@index called.. 
+[26-Feb-2016 00:58:56 UTC] AdminController@index called.. 
+[26-Feb-2016 00:59:06 UTC] AdminController@index called.. 
+[26-Feb-2016 00:59:48 UTC] AdminController@index called.. 
+[26-Feb-2016 00:59:51 UTC] AdminController@index called.. 
+[26-Feb-2016 01:00:11 UTC] AdminController@index called.. 
+[26-Feb-2016 01:03:16 UTC] AdminController@index called.. 
+[26-Feb-2016 01:03:24 UTC] AdminController@index called.. 
+[26-Feb-2016 01:05:16 UTC] AdminController@index called.. 
+[26-Feb-2016 01:05:25 UTC] test test
+[26-Feb-2016 01:05:33 UTC] test test
+[26-Feb-2016 01:05:38 UTC] AdminController@index called.. 
