@@ -16,7 +16,7 @@
     <link href="<?= asset('css/yeti.css'); ?>" rel="stylesheet">
 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
+    <script src="<?= asset('ckeditor/ckeditor.js'); ?>" type="text/javascript"></script>
     <style>
         body {
             font-family: 'Lato';
@@ -24,6 +24,12 @@
 
         .fa-btn {
             margin-right: 6px;
+        }
+        .adminTab{
+            padding: 10px;
+            border-left: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
         }
     </style>
 </head>
@@ -73,12 +79,15 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
-
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script>
+        // $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    </script>
+
+
+    @yield('content')
 </body>
 </html>

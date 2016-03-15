@@ -28,7 +28,7 @@ Route::get('/', function () {
 |
 */
 
-// test
+
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
@@ -36,8 +36,22 @@ Route::group(['middleware' => 'web'], function () {
 	Route::group(['middleware' => 'Admin'], function () {
     	// Admin routes here
 		Route::get('adminindex', 'AdminController@index');
+		// Posts
+			// Show  Posts
+			//Route::get('adminposts', 'AdminController@showPosts');
+			Route::get('adminposts/{page_number?}', 'AdminController@showPosts');
+			// Set Post Active/Inactive
+			Route::post('setPostStatus', 'AdminController@setPostStatus');
+		// Show Editor
+			Route::get('editor', 'AdminController@showEditor');
+			Route::get('editPost/{post_id}', 'AdminController@editPost');
+			Route::post('editor', 'AdminController@savePost');
+			Route::post('editPost/editor', 'AdminController@savePost');
+			Route::get('assets', 'AdminController@showAssets');
+			Route::get('sysinfo', 'AdminController@showSysInfo');
+		// Preview Post
+			Route::get('previewPost/{post_id}', 'AdminController@previewPost');
 	});
-   // Route::get('/home', 'HomeController@index');
     Route::get('/userhome', 'HomeController@index');
 
 });

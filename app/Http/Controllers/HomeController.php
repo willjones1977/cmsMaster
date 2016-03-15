@@ -23,7 +23,6 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        error_log("test test");
         return view('userhome');
     }
 }
