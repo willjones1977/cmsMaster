@@ -47,10 +47,13 @@ Route::group(['middleware' => 'web'], function () {
 			Route::get('editPost/{post_id}', 'AdminController@editPost');
 			Route::post('editor', 'AdminController@savePost');
 			Route::post('editPost/editor', 'AdminController@savePost');
-			Route::get('assets', 'AdminController@showAssets');
 			Route::get('sysinfo', 'AdminController@showSysInfo');
+		// Show Assets
+			//Route::get('assets/{path?}', 'AssetController@showAssets');
+			Route::get('assets/', 'AssetController@showAssets');
 		// Preview Post
 			Route::get('previewPost/{post_id}', 'AdminController@previewPost');
+
 	});
     Route::get('/userhome', 'HomeController@index');
 

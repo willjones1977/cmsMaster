@@ -17,7 +17,7 @@ class AdminController extends Controller{
 		if(empty($page_number)) $page_number = 1;
 		// Create pagination 
 		// Create offset and limit variables
-			$postsPerPage = 3;
+			$postsPerPage = 8;
 			$offset = 0;
 
 			if(!empty($page_number) && $page_number != 1):
@@ -36,8 +36,6 @@ class AdminController extends Controller{
 									   ->with('totalPages', $totalPages);
 	}
 	public function setPostStatus(){
-		error_log('function setPostStatus called()');
-		error_log(print_r(Input::all(), true));
 		
 		$postMetaData = PostMetaData::where('post_id', Input::get('post_id'))->first();
 		$postMetaData->active = Input::get('new_status'); 
@@ -54,7 +52,6 @@ class AdminController extends Controller{
 	}
 	// ~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=
 	public function previewPost($post_id){
-		error_log("function previewPost called");
 		$post = Posts::where('id', $post_id)->first();	
 		$postMetaData = PostMetaData::where('post_id', $post_id)->first();
 		return view('admin.previewPost')->with('post', $post)
@@ -66,7 +63,6 @@ class AdminController extends Controller{
 	}
 	public function savePost(){
 		if((Input::get('post_id') )):
-			error_log("it is set");
 			$post = Posts::where('id', Input::get('post_id'))->first();			
 			$postMetaData = PostMetaData::where('post_id', Input::get('post_id'))->first();
 		else:
@@ -85,7 +81,13 @@ class AdminController extends Controller{
 			$postMetaData->active = $postActive;
 			$postMetaData->updated_at = Carbon::now();
 			$postMetaData->save();
-		return \Redirect::action('AdminController@index');
+			$msg = "Saved at " . Carbon::now();
+			\Session::flash('msg', $msg);
+		if((Input::get('post_id') )):
+			return \Redirect::back();
+		else:
+			return $this->editPost($post->id);
+		endif;
 	}
 	// ~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=
 	public function showAssets(){

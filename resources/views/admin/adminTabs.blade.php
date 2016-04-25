@@ -9,7 +9,7 @@
     	<a href="<?= action('AdminController@showEditor'); ?>">editor</a>
     </li>
     <li role="presentation" class="<?= Route::getCurrentRoute()->getPath() == 'assets' ? 'active' : '' ?>">
-    	<a href="<?= action('AdminController@showAssets'); ?>">assests</a>
+    	<a href="<?= action('AssetController@showAssets'); ?>">assests</a>
     </li>
     <li role="presentation" class="<?= Route::getCurrentRoute()->getPath() == 'sysinfo' ? 'active' : '' ?>">
     	<a href="<?= action('AdminController@showSysInfo'); ?>">sysinfo</a>

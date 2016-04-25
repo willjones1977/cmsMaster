@@ -45,14 +45,14 @@
 						<th></th>
 						<th></th>
 						<th>active</th>
-						<th>post meta id</th>
-						<th>post  id</th>
-						<th>author id</th>
+						<!-- <th>post meta id</th> -->
+						<!-- <th>post  id</th> -->
+						<!-- <th>author id</th> -->
 						<th>author name</th>
 						<th>title</th>
-						<th>publish date/time</th>
+						<!-- <th>publish date/time</th> -->
 						<th>created date/time</th>
-						<th>updated at</th>
+						<!-- <th>updated at</th> -->
 					<?php foreach($postMetaData as $post): ?>
 							<tr>
 								<!-- Edit Button -->
@@ -71,14 +71,15 @@
 												name="activeCheckbox" <?= $post->active == 1 ? 'checked' : ''; ?>>
 									</td>
 								<!-- IDs -->
-									<td><?= $post->id ?></td>
-									<td><?= $post->post_id ?></td>
-									<td><?= $post->author_id ?></td>
+
+									<!-- <td><?//= $post->id ?></td> -->
+									<!-- <td><?//= $post->post_id ?></td> -->
+									<!-- <td><?//= $post->author_id ?></td> -->
 								<td><?= $post->author->name; ?></td>
 								<td><?= $post->title; ?></td>
-								<td><?= $post->publish_date_time; ?></td>
+								<!-- <td><?//= $post->publish_date_time; ?></td> -->
 								<td><?= $post->created_at?></td>
-								<td><?= $post->updated_at; ?></td>
+								<!-- <td><?//= $post->updated_at; ?></td> -->
 							</tr>
 					<?php endforeach; ?>
 				</table>
