@@ -34,11 +34,29 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
 	Route::group(['middleware' => 'Admin'], function () {
+    	
+		// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+		// VueJS test routes
+		Route::get('adminVue', function(){
+			
+			return view('admin.adminVue');
+		});
+		Route::get('allmessages', function(){
+			
+			$allposts = App\Posts::all();
+			$allposts->load('postMetaData');
+			return $allposts;
+			
+			$allposts = App\Posts::with('postMetaData')->get();
+			return $allposts;
+		});
+
+
+		// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     	// Admin routes here
 		Route::get('adminindex', 'AdminController@index');
 		// Posts
-			// Show  Posts
-			//Route::get('adminposts', 'AdminController@showPosts');
+		// Show  Posts
 			Route::get('adminposts/{page_number?}', 'AdminController@showPosts');
 			// Set Post Active/Inactive
 			Route::post('setPostStatus', 'AdminController@setPostStatus');
