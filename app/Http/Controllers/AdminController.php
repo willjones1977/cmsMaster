@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use \Carbon\Carbon;
 use App\Posts;
 use App\PostMetaData;
+use App\PostCategories;
 
 class AdminController extends Controller{
 	public function index(){
@@ -17,7 +18,7 @@ class AdminController extends Controller{
 		if(empty($page_number)) $page_number = 1;
 		// Create pagination 
 		// Create offset and limit variables
-			$postsPerPage = 8;
+			$postsPerPage = 15;
 			$offset = 0;
 
 			if(!empty($page_number) && $page_number != 1):
@@ -35,6 +36,21 @@ class AdminController extends Controller{
 									   ->with('page_number', $page_number)
 									   ->with('totalPages', $totalPages);
 	}
+	public function adminPost(){
+		// Delete
+		if(Input::get('deletePost')):
+			$postId = Input::get('deletePost');
+			
+			error_log("postId " . $postId);
+			$post = Posts::find($postId);	
+			$post->delete();
+			$postMetaData = PostMetaData::where('post_id', $postId)->first();
+			$postMetaData->delete();
+		endif;
+		$page_number = Input::get('page_number');
+		error_log('page_number ' . $page_number);
+		return $this->showPosts($page_number);
+	}
 	public function setPostStatus(){
 		
 		$postMetaData = PostMetaData::where('post_id', Input::get('post_id'))->first();
@@ -43,12 +59,13 @@ class AdminController extends Controller{
 		
 	}
 	public function editPost($postId){
-		
+		$postCategories = PostCategories::all();
 		$postMetaData = PostMetaData::where('post_id', $postId)->first();
  		$post = Posts::where('id', $postId)->first();
 
 		return view('admin.editor')->with('post', $post)
-								   ->with('postMetaData', $postMetaData);
+								   ->with('postMetaData', $postMetaData)
+								   ->with('postCategories', $postCategories);
 	}
 	// ~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=
 	public function previewPost($post_id){
@@ -59,10 +76,12 @@ class AdminController extends Controller{
 	} 
 	// ~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=
 	public function showEditor(){
-		return view('admin.editor');
+		$postCategories = PostCategories::all();
+		return view('admin.editor')->with('postCategories', $postCategories);
 	}
 	public function savePost(){
 		if((Input::get('post_id') )):
+			error_log(print_r(Input::all(), true));
 			$post = Posts::where('id', Input::get('post_id'))->first();			
 			$postMetaData = PostMetaData::where('post_id', Input::get('post_id'))->first();
 		else:
@@ -80,6 +99,7 @@ class AdminController extends Controller{
 			$postMetaData->title = Input::get('post_title');
 			$postMetaData->active = $postActive;
 			$postMetaData->updated_at = Carbon::now();
+			$postMetaData->post_category_id = Input::get('post_category'); 
 			$postMetaData->save();
 			$msg = "Saved at " . Carbon::now();
 			\Session::flash('msg', $msg);

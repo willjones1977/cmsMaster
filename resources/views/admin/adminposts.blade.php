@@ -10,6 +10,7 @@
 				<div class="clearfix" style="">
 					<div class="pull-right" style="color: #C00">
 						<!-- ~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-= -->
+						<!-- Pagination -->
 						<?php
 							echo "<ul class='pagination paginationLinks' style='margin: 0px'>";
 									if($page_number != 1):
@@ -38,51 +39,59 @@
 						?>
 						<!-- ~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-=~-= -->
 					</div>
-					
 				</div>
-				<table class="table" style="margin-top: 10px">
-					<!-- Table Headers  -->
-						<th></th>
-						<th></th>
-						<th>active</th>
-						<!-- <th>post meta id</th> -->
-						<!-- <th>post  id</th> -->
-						<!-- <th>author id</th> -->
-						<th>author name</th>
-						<th>title</th>
-						<!-- <th>publish date/time</th> -->
-						<th>created date/time</th>
-						<!-- <th>updated at</th> -->
-					<?php foreach($postMetaData as $post): ?>
-							<tr>
-								<!-- Edit Button -->
+				<form action="adminposts" method="post">	
+					{{ csrf_field() }}
+					<input type="hidden" name="page_number" value="{{ $page_number }}">
+					<table class="table table-striped table-hover" style="border: 1px solid #ccc; margin-top: 10px">
+						<!-- Table Headers  -->
+							<thead>
+								<th></th>
+								<th></th>
+								<th>active</th>
+								<th><span style="white-space: nowrap">author name</span></th>
+								<th>title</th>
+								<th>category</th>
+								<th><span style="white-space: nowrap">created date/time</span></th>
+								<th>delete</th>
+							</thead>
+						<?php foreach($postMetaData as $post): ?>
+								<tr>
+									<!-- Edit Button -->
+										<td>
+											<a href="<?= action('AdminController@editPost', ['post_id' => $post->post_id]); ?>">edit</a>
+										</td>
+									<!-- Preview Button -->
+										<td>
+											<a href="<?= action('AdminController@previewPost', ['id' => $post->post_id] ); ?>">preview</a>
+										</td>
+									<!-- Set Active -->
+										<td>
+											<input 	type="checkbox"
+													class="activeCheckbox"
+													data-post-id="<?= $post->post_id; ?>"
+													name="activeCheckbox" <?= $post->active == 1 ? 'checked' : ''; ?>>
+										</td>
+									<td><?= $post->author->name; ?></td>
+									<td><?= $post->title; ?></td>
 									<td>
-										<a href="<?= action('AdminController@editPost', ['post_id' => $post->post_id]); ?>">edit</a>
+										@if($post->postCategory)
+											{{ $post->postCategory->category_name }}
+										@else
+											Unsorted		
+										@endif
 									</td>
-								<!-- Preview Button -->
-									<td>
-										<a href="<?= action('AdminController@previewPost', ['id' => $post->post_id] ); ?>">preview</a>
-									</td>
-								<!-- Active -->
-									<td>
-										<input 	type="checkbox"
-												class="activeCheckbox"
-												data-post-id="<?= $post->post_id; ?>"
-												name="activeCheckbox" <?= $post->active == 1 ? 'checked' : ''; ?>>
-									</td>
-								<!-- IDs -->
-
-									<!-- <td><?//= $post->id ?></td> -->
-									<!-- <td><?//= $post->post_id ?></td> -->
-									<!-- <td><?//= $post->author_id ?></td> -->
-								<td><?= $post->author->name; ?></td>
-								<td><?= $post->title; ?></td>
-								<!-- <td><?//= $post->publish_date_time; ?></td> -->
-								<td><?= $post->created_at?></td>
-								<!-- <td><?//= $post->updated_at; ?></td> -->
-							</tr>
-					<?php endforeach; ?>
-				</table>
+									<td><?= $post->created_at?></td>
+									<!-- Delete Post -->
+										<td>
+											<button name="deletePost" value="{{ $post->id }}" style="padding: 0; border: none;background: none;">	
+												<span class="glyphicon glyphicon-remove" style="color: 	#8B0000"></span>
+											</button>
+										</td>
+								</tr>
+						<?php endforeach; ?>
+					</table>
+    			</form>
     		</div>
 			admin.adminpost.blade.php
 			

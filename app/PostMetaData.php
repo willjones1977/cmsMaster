@@ -10,5 +10,8 @@ class PostMetaData extends Model{
     public function author(){
     	return $this->hasOne('App\User', 'id', 'author_id');
     }
+    public function postCategory(){
+    	return $this->hasOne('App\PostCategories', 'id' , 'post_category_id');
+    }
    
 }

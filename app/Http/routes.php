@@ -42,7 +42,6 @@ Route::group(['middleware' => 'web'], function () {
 			return view('admin.adminVue');
 		});
 		Route::get('allmessages', function(){
-			
 			$allposts = App\Posts::all();
 			$allposts->load('postMetaData');
 			return $allposts;
@@ -58,6 +57,7 @@ Route::group(['middleware' => 'web'], function () {
 		// Posts
 		// Show  Posts
 			Route::get('adminposts/{page_number?}', 'AdminController@showPosts');
+			Route::post('adminposts/{page_number?}', 'AdminController@adminPost');
 			// Set Post Active/Inactive
 			Route::post('setPostStatus', 'AdminController@setPostStatus');
 		// Show Editor
